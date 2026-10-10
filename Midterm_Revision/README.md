@@ -130,6 +130,26 @@ The site does not load any local files, so it should work this way too. Option A
 
 ---
 
+## Online version (GitHub Pages)
+
+The site is published with GitHub Pages at:
+
+**https://batoolashour.github.io/ARTI452-NLP/**
+
+Deployment is automatic. The workflow in `.github/workflows/deploy-midterm-revision.yml` (at the repository root) runs whenever a push to `main` changes anything in `Midterm_Revision/`. It:
+
+1. runs `python build.py` to rebuild `index.html` from `src/`
+2. uploads only `index.html` (the lab folders are not published)
+3. deploys it to GitHub Pages
+
+You can also run it by hand from the **Actions** tab → **Deploy Midterm Revision site** → **Run workflow**.
+
+Links to a specific page work too, for example `https://batoolashour.github.io/ARTI452-NLP/#ch3-essay` opens the Week 3 essay questions.
+
+> Progress saved on the online site is separate from progress saved on `http://localhost:8000`, because each address keeps its own browser storage.
+
+---
+
 ## Editing the content (optional)
 
 1. Edit the chapter files in `src/` (for example `src/ch3.js`) or the styles in `src/shell.html`.

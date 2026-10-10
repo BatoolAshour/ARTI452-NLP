@@ -1,0 +1,65 @@
+# Builds the Midterm_Revision study website and publishes it to GitHub Pages.
+# Only the Midterm_Revision site is published; the lab folders are not affected.
+name: Deploy Midterm Revision site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Midterm_Revision/**"
+      - ".github/workflows/deploy-midterm-revision.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a newer push replace a deployment that is still waiting, but never cancel one in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Midterm_Revision
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build index.html from src/
+        run: python build.py
+
+      - name: Prepare site folder
+        run: |
+          mkdir -p ../_site
+          cp index.html ../_site/index.html
+          touch ../_site/.nojekyll
+          test -s ../_site/index.html
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
