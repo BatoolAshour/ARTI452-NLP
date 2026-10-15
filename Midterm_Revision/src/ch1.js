@@ -25,15 +25,15 @@ CH.push({
     ]),
     S('c1s3', `NLP Applications`, 'must', [
       P(`The lecture lists twelve applications. For each one, learn a one-line definition and one example.`, `تسرد المحاضرة اثني عشر تطبيقًا. احفظ لكل تطبيق تعريفًا من سطر واحد ومثالًا واحدًا.`),
-      T([`Application`, `What it does (from the slides)`, `Example shown`], [
+      T([`Application`, `What it does`, `Example shown`], [
         [`Spell and grammar checking`, `Checks spelling and grammar and suggests alternatives for the errors`, `Word-processor suggestions`],
         [`Word prediction`, `Predicts the next word that is highly probable to be typed by the user`, `Phone keyboard suggestions`],
         [`Information retrieval`, `Finds relevant information for the user's query`, `Search engine`],
-        [`Text categorization`, `Assigns a text to a category`, `uClassify: a news URL classified as Sports (92.8%)`],
+        [`Text categorization`, `Assigns a text to a category (slide shows a screenshot only)`, `uClassify: a news URL classified as Sports (92.8%)`],
         [`Summarization`, `Generates a short summary from one or more documents, sometimes based on a given query`, `Summary of news articles`],
         [`Question answering`, `Answers questions with a short answer`, `BioMedical QA: "which drugs can be used to treat lung cancer?" → Amifostine`],
         [`Information extraction`, `Extracts important concepts from texts and assigns them to slots in a certain template; includes named-entity recognition`, `Lancet: medication, dosage, manner, frequency, duration, reason`],
-        [`Machine translation`, `Translates text from one language to another`, `English → Arabic translation`],
+        [`Machine translation`, `Translates text from one language to another (slide shows a screenshot only)`, `English → Arabic translation`],
         [`Sentiment analysis`, `Identifies sentiments and opinions stated in a text`, `Product reviews`],
         [`Optical character recognition (OCR)`, `Recognizes printed or handwritten texts and converts them to computer-readable texts`, `Mobile OCR app`],
         [`Speech recognition`, `Recognizes a spoken language and transforms it into text`, `Voice dictation`],

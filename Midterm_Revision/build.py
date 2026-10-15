@@ -8,8 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "src"
 
-# Order matters: helpers first, then chapter data, then the app logic.
-parts = [SRC / "00_helpers.js", *sorted(SRC.glob("ch*.js")), SRC / "zz_app.js"]
+# Order matters: helpers, chapter data + exam metadata, guided lessons, widgets, then the app logic.
+parts = [SRC / "00_helpers.js", *sorted(SRC.glob("ch*.js")), *sorted(SRC.glob("lessons_*.js")), SRC / "widgets.js", SRC / "zz_app.js"]
 script = "".join(p.read_text(encoding="utf-8") + "\n" for p in parts)
 
 shell = (SRC / "shell.html").read_text(encoding="utf-8")

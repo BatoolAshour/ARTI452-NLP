@@ -13,3 +13,7 @@ const K = (en, ar) => ({ t: 'key', en, ar });
 const S = (id, h, pri, blocks) => ({ id, h, pri, blocks });
 const E = (type, q, qa, marks, ans, ansAr, pts, alloc) => ({ type, q, qa, marks, ans, ansAr, pts, alloc });
 const MCQ = (q, qa, opts, ans, why, whyAr) => ({ q, qa, opts, ans, why, whyAr });
+/* guided lessons (lessons_ch*.js): LESSONS[sectionId] = { big, why, links, think, steps, analogy, action, confuse, check, remember, teach }
+   missions: MISSIONS[chapterId] = [{ t: [en, ar], goal: [en, ar], secs: ['1', '2', …] }] */
+const LESSONS = {};
+const MISSIONS = {};
